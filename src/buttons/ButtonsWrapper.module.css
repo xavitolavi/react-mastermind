@@ -1,0 +1,29 @@
+.buttonWrapper {
+    position: relative;
+    margin: 3.5rem 0 0 1.5rem;
+    width: 5rem;
+}
+
+.topButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+.topButtons button {
+    visibility: hidden;
+    margin: 1rem 1rem 1rem 0;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+}
+
+.bottomButton {
+    position: absolute;
+    bottom: 2rem;
+}
+
+.show button{
+    visibility: visible;
+}

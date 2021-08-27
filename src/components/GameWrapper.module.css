@@ -1,0 +1,8 @@
+.gameWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.colors {
+    margin: 3.5rem 1.5rem 0 0;
+}

@@ -1,0 +1,30 @@
+.pegSlot {
+    width: 14px;
+    height: 14px;
+    margin: .3rem;
+    border-radius: 50%;
+    max-width: 1rem;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+}
+
+.feedBackPegs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 70%;
+}
+
+.grey {
+    background-color: rgb(207, 207, 207);
+}
+
+.black {
+    background-color: rgb(36, 36, 36);
+}
+
+.white {
+    width: 13px;
+    height: 13px;
+    border: 1px solid rgb(29, 29, 29);
+    background-color: #fff;
+}

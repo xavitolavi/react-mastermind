@@ -1,0 +1,13 @@
+.gameReference {
+    visibility: hidden;
+    font-size: 80%;
+    margin-left: 1rem;
+    line-height: 10%;
+    color: #9c9c9c;
+    text-align: left;
+    font-weight: 400;
+}
+
+.show {
+    visibility: visible;
+}

@@ -1,0 +1,22 @@
+.guess {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slots {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slots h2 {
+    color: #c5e6f1;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.selected {
+    color: black !important;
+}

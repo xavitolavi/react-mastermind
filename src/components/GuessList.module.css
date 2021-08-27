@@ -1,0 +1,10 @@
+.guessItem {
+    max-width: 35rem;
+    width: 90%;
+}
+
+.guessItem ul {
+    list-style: none;
+    margin: 2rem 0 0 3rem;
+    padding:0;
+}

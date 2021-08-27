@@ -1,0 +1,44 @@
+.pegs {
+    width: 45px;
+    height: 45px;
+    margin: .5rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+.selectedPeg {
+    width: 27px;
+    height: 27px;
+    border: 9px solid lightgrey;
+}
+
+.red{
+    background-color: red;
+    border-radius: 50%;
+}
+
+.blue{
+    background-color: blue;
+    border-radius: 50px;
+}
+
+.green{
+    background-color: green;
+    border-radius: 50px;
+}
+
+.yellow{
+    background-color: yellow;
+    border-radius: 50px;
+}
+
+.orange{
+    background-color: orange;
+    border-radius: 50px;
+}
+
+.white{
+    background-color: white;
+    border-radius: 50px;
+}

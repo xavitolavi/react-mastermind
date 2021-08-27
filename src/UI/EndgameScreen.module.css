@@ -1,0 +1,18 @@
+.message{
+    position: absolute;
+    top: 22rem;
+}
+
+.won{
+    visibility: hidden;
+    color: #4aecb8;
+}
+
+.lost{
+    visibility: hidden;
+    color: #dd205f;
+}
+
+.show {
+    visibility: visible;
+}
