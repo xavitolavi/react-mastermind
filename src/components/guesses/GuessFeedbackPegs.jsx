@@ -5,6 +5,9 @@ import classes from './GuessFeedbackPegs.module.css'
 
 
 const GuessFeedbackPegs = (props) => {
+    const gameCtx = useContext(GameContext);
+    const {guesses} = gameCtx;
+    //Placeholders for the feedback pegs
     const [feedBackPegs, setFeedBackPegs] = useState ([
         {
             'id': 1,
@@ -23,9 +26,6 @@ const GuessFeedbackPegs = (props) => {
             'color': 'grey'
         }
     ])
-
-    const gameCtx = useContext(GameContext);
-    const {guesses} = gameCtx;
 
     useEffect(() => {
         if (guesses[props.row] !== undefined) {
@@ -46,6 +46,13 @@ const GuessFeedbackPegs = (props) => {
 
         }
     }, [guesses])
+
+    //Everytime we start a new game we reset the feedback pegs (it was a bug)
+    useEffect(() => {
+        feedBackPegs.forEach(peg => {
+             peg.color = 'grey'
+        });
+    }, [gameCtx.id])
 
     const slots = feedBackPegs.map(peg => (<div className={`${classes.pegSlot} ${classes[peg.color]}`} key={peg.id}/>));
     return (

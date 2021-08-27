@@ -28,6 +28,13 @@ const GuessPeg = (props) => {
         }
     }
 
+    //UseEffect to remove the colors from the pegs when clicking the reset button
+    useEffect(() => {
+        if (props.row === gameCtx.guesses.length) {
+            setIsColored(false);
+        }
+    }, [gameCtx.reset])
+
     useEffect(() => {
         setIsColored(false);
     }, [gameCtx.reference])

@@ -4,6 +4,7 @@ import classes from './ColorPeg.module.css';
 
 const ColorPeg = (props) => {
     const [isSelected, setIsSelected] = useState(false);
+    const [gameStarted, setGameStarted] = useState(false);
 
     const gameCtx = useContext(GameContext);
     const { selectedColor } = gameCtx; 
@@ -12,19 +13,23 @@ const ColorPeg = (props) => {
 
     const onSelectColorHandler = (e) => {
         e.preventDefault();
-
-        gameCtx.addGame({
-            ...gameCtx,
-            selectedColor: props.color
-        })
+        
+        if (gameCtx.status !== undefined){
+            gameCtx.addGame({
+                ...gameCtx,
+                selectedColor: props.color
+            })
+        }
     }
 
     useEffect(() => {
-        if (selectedColor !== props.color){
-            setIsSelected(false);
-        }
-        else {
-            setIsSelected(true);
+        if (gameCtx.status !== undefined){
+            if (selectedColor !== props.color){
+                setIsSelected(false);
+            }
+            else {
+                setIsSelected(true);
+            }
         }
     }, [selectedColor])
 

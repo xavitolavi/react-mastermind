@@ -12,20 +12,25 @@ const ConfirmButton = () => {
 
     const confirmEnabledClasses = `${isFull ? classes.enabled : classes.disabled}`;
 
+    //With this checker we can check if the colors of the array 'code' are all different from grey,
+    //if so, the button will turn on, otherwise, it won't
+    const checker = arr => arr.every(v => v !== 'grey');
+
     //We enable and disabled the confirm button with this useEffect
     useEffect(() => {
-        if (gameCtx.code !== undefined && gameCtx.code.length === 4){
+        console.log(gameCtx.code)
+        if (gameCtx.code !== undefined && gameCtx.code.length === 4 && checker(gameCtx.code)){
             setIsFull(true);
         }
         else{
             setIsFull(false);
         }
     }, [gameCtx])
-    console.log(gameCtx)
+
+    
     async function compareCodeHandler(e) {
         e.preventDefault();
-
-        if (gameCtx.code.length === 4) {
+        if (gameCtx.code.length === 4 && checker(gameCtx.code)) {
             const response = await fetch('http://localhost:8000/api/games/'+gameCtx.id+'/guesses/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

@@ -10,7 +10,7 @@
 .selectedPeg {
     width: 27px;
     height: 27px;
-    border: 9px solid lightgrey;
+    border: 9px solid rgba(211, 211, 211, 0.548);
 }
 
 .red{

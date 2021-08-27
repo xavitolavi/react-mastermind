@@ -4,3 +4,12 @@
     margin-left: 2px;
     font-size: 120%;
  }
+
+.disabled {
+    background-color: rgb(243, 243, 243);
+}
+
+.enabled {
+    background-color: #fff;
+    cursor: pointer;
+}

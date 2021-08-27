@@ -11,7 +11,8 @@ const GameContext = React.createContext({
         max_guesses: 10,
         guesses: [],
         selectedColor: "",
-        code: []
+        code: [],
+        reset: false,
 });
 
 export default GameContext;

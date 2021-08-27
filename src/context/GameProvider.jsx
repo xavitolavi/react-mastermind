@@ -12,7 +12,8 @@ const defaultGameState = {
     max_guesses: 10,
     guesses: [],
     selectedColor: "",
-    code: []
+    code: [],
+    reset: false,
 };
 
 const gameReducer = (state, action) => {
@@ -28,7 +29,8 @@ const gameReducer = (state, action) => {
             max_guesses: action.game.max_guesses,
             guesses: action.game.guesses,
             selectedColor: action.game.selectedColor,
-            code: action.game.code
+            code: action.game.code,
+            reset: action.game.reset,
         };
     }
     return defaultGameState;
@@ -53,6 +55,7 @@ const GameProvider = (props) => {
         guesses: gameState.guesses,
         selectedColor: gameState.selectedColor,
         code: gameState.code,
+        reset: gameState.reset,
         addGame: addGameHandler,
     };
 
