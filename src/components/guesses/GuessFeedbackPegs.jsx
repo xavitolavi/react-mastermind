@@ -52,7 +52,7 @@ const GuessFeedbackPegs = (props) => {
         feedBackPegs.forEach(peg => {
              peg.color = 'grey'
         });
-    }, [gameCtx.id])
+    }, [gameCtx.id, gameCtx.reset, gameCtx.reference])
 
     const slots = feedBackPegs.map(peg => (<div className={`${classes.pegSlot} ${classes[peg.color]}`} key={peg.id}/>));
     return (

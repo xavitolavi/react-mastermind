@@ -28,16 +28,20 @@ const GuessPeg = (props) => {
         }
     }
 
+    useEffect(() => {
+        for(let i = 0; i < gameCtx.secret_code.length; i++) {
+            if(props.peg.id === 'lost'+i){
+                setIsColored(true);
+                setColorPeg(props.peg.color);
+            }
+        }
+    }, [gameCtx])
+    
     //UseEffect to remove the colors from the pegs when clicking the reset button
     useEffect(() => {
-        if (props.row === gameCtx.guesses.length) {
-            setIsColored(false);
-        }
-    }, [gameCtx.reset])
-
-    useEffect(() => {
         setIsColored(false);
-    }, [gameCtx.reference])
+        gameCtx.guesses = [];
+    }, [gameCtx.reference, gameCtx.reset])
 
     useEffect(() => {
         if (selectedColor !== "") {

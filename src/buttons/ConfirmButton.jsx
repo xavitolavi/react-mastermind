@@ -18,7 +18,6 @@ const ConfirmButton = () => {
 
     //We enable and disabled the confirm button with this useEffect
     useEffect(() => {
-        console.log(gameCtx.code)
         if (gameCtx.code !== undefined && gameCtx.code.length === 4 && checker(gameCtx.code)){
             setIsFull(true);
         }
@@ -30,22 +29,24 @@ const ConfirmButton = () => {
     
     async function compareCodeHandler(e) {
         e.preventDefault();
-        if (gameCtx.code.length === 4 && checker(gameCtx.code)) {
-            const response = await fetch('http://localhost:8000/api/games/'+gameCtx.id+'/guesses/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 'code': gameCtx.code })
-            });
+        if (gameCtx.status === 'running') {
+            if (gameCtx.code.length === 4 && checker(gameCtx.code)) {
+                const response = await fetch('http://localhost:8000/api/games/'+gameCtx.id+'/guesses/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 'code': gameCtx.code })
+                });
 
-            //We add the new recieved feedback data to the context so we can add the feedback pegs or the new status
-            //And also we reset the code array to start again and set the confirm button off 
-            const data = await response.json();
-            gameCtx.addGame({
-                ...gameCtx,
-                status: data.status,
-                guesses: data.guesses,
-                code: []
-            })
+                //We add the new recieved feedback data to the context so we can add the feedback pegs or the new status
+                //And also we reset the code array to start again and set the confirm button off 
+                const data = await response.json();
+                gameCtx.addGame({
+                    ...gameCtx,
+                    status: data.status,
+                    guesses: data.guesses,
+                    code: []
+                })
+            }
         }
     }
     
